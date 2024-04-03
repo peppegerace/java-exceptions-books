@@ -8,23 +8,24 @@ public class Book {
     private String publisher;
 
     // COSTRUTTORE
-    public Book(String title, int numberPages,String author, String publisher) throws IllegalAccessException {
-//        this.title = title;
-//        this.numberPages = numberPages;
-//        this.author = author;
-//        this.publisher = publisher;
-        if (title != null || title.isEmpty()){
+    public Book(String title, int numberPages, String author, String publisher) throws IllegalAccessException {
+
+        if (title == null || title.isEmpty()) {
             throw new IllegalAccessException("Il titolo è un campo obbligatorio");
         }
         if (numberPages <= 0) {
             throw new IllegalAccessException("Il libro deve avere almeno una pagina");
         }
-        if (author != null || title.isEmpty()) {
+        if (author == null || title.isEmpty()) {
             throw new IllegalAccessException("Il libro deve avere un autore");
         }
-        if (publisher != null || publisher.isEmpty()) {
+        if (publisher == null || publisher.isEmpty()) {
             throw new IllegalAccessException("Il libro deve avere un editore");
         }
+        this.title = title;
+        this.numberPages = numberPages;
+        this.author = author;
+        this.publisher = publisher;
     }
 
     // GETTER and SETTER
@@ -32,7 +33,7 @@ public class Book {
         return title;
     }
     public void setTitle(String title) throws IllegalAccessException {
-        if (title != null || title.isEmpty()){
+        if (title == null || title.isEmpty()){
             throw new IllegalAccessException("Il titolo è un campo obbligatorio");
         }
         this.title = title;
@@ -50,7 +51,7 @@ public class Book {
         return author;
     }
     public void setAuthor(String author) throws IllegalAccessException {
-        if (author != null || title.isEmpty()) {
+        if (author == null || author.isEmpty()) {
             throw new IllegalAccessException("Il libro deve avere un autore");
         }
         this.author = author;
@@ -58,16 +59,16 @@ public class Book {
     public String getPublisher() {
         return publisher;
     }
-    public void setPublisher() throws IllegalAccessException {
-        if (publisher != null || publisher.isEmpty()) {
+    public void setPublisher(String publisher) throws IllegalAccessException {
+        if (this.publisher == null || this.publisher.isEmpty()) {
             throw new IllegalAccessException("Il libro deve avere un editore");
         }
-        this.publisher = publisher;
+        this.publisher = this.publisher;
     }
 
     // METODI
-    @Override
-    public String toString() {
-        return "Titolo: " + title + " || Numero pagine: " + numberPages + " || Autore: " + author + " || Editore: " + publisher;
+
+    public String getInfoBook() {
+        return String.format("Titolo: " + title + " || Numero pagine: " + numberPages + " || Autore: " + author + " || Editore: " + publisher);
     }
 }
