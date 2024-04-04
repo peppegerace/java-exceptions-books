@@ -7,20 +7,21 @@ public class Book {
     private String author;
     private String publisher;
 
+
     // COSTRUTTORE
-    public Book(String title, int numberPages, String author, String publisher) throws IllegalAccessException {
+    public Book(String title, int numberPages, String author, String publisher) throws IllegalArgumentException {
 
         if (title == null || title.isEmpty()) {
-            throw new IllegalAccessException("Il titolo è un campo obbligatorio");
+            throw new IllegalArgumentException("Il titolo è un campo obbligatorio");
         }
         if (numberPages <= 0) {
-            throw new IllegalAccessException("Il libro deve avere almeno una pagina");
+            throw new IllegalArgumentException("Il libro deve avere almeno una pagina");
         }
         if (author == null || title.isEmpty()) {
-            throw new IllegalAccessException("Il libro deve avere un autore");
+            throw new IllegalArgumentException("Il libro deve avere un autore");
         }
         if (publisher == null || publisher.isEmpty()) {
-            throw new IllegalAccessException("Il libro deve avere un editore");
+            throw new IllegalArgumentException("Il libro deve avere un editore");
         }
         this.title = title;
         this.numberPages = numberPages;
@@ -32,36 +33,36 @@ public class Book {
     public String getTitle() {
         return title;
     }
-    public void setTitle(String title) throws IllegalAccessException {
+    public void setTitle(String title) throws IllegalArgumentException {
         if (title == null || title.isEmpty()){
-            throw new IllegalAccessException("Il titolo è un campo obbligatorio");
+            throw new IllegalArgumentException("Il titolo è un campo obbligatorio");
         }
         this.title = title;
     }
     public int getNumberPages() {
         return numberPages;
     }
-    public void setNumberPages(int numberPages) throws IllegalAccessException {
+    public void setNumberPages(int numberPages) throws IllegalArgumentException {
         if (numberPages <= 0) {
-            throw new IllegalAccessException("Il libro deve avere almeno una pagina");
+            throw new IllegalArgumentException("Il libro deve avere almeno una pagina");
         }
         this.numberPages = numberPages;
     }
     public String getAuthor() {
         return author;
     }
-    public void setAuthor(String author) throws IllegalAccessException {
+    public void setAuthor(String author) throws IllegalArgumentException {
         if (author == null || author.isEmpty()) {
-            throw new IllegalAccessException("Il libro deve avere un autore");
+            throw new IllegalArgumentException("Il libro deve avere un autore");
         }
         this.author = author;
     }
     public String getPublisher() {
         return publisher;
     }
-    public void setPublisher(String publisher) throws IllegalAccessException {
+    public void setPublisher(String publisher) throws IllegalArgumentException {
         if (this.publisher == null || this.publisher.isEmpty()) {
-            throw new IllegalAccessException("Il libro deve avere un editore");
+            throw new IllegalArgumentException("Il libro deve avere un editore");
         }
         this.publisher = this.publisher;
     }
